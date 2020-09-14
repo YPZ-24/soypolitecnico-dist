@@ -173,6 +173,7 @@ exports.sendEmailResetPwd = (req, res) => __awaiter(void 0, void 0, void 0, func
         }
     });
     console.log(transporter);
+    console.log(email);
     const resu = yield transporter.sendMail({
         from: 'Soy Politecnico',
         to: email,
