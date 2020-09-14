@@ -26,7 +26,7 @@ app.use(cors_1.default());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use(passport_2.default.initialize());
 passport_2.default.use(passport_1.default);
-app.get('/', (req, res) => {
+app.get('/api/gn2/v2', (req, res) => {
     res.send('Server started');
 });
 //ROUTES
