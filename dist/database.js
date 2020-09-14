@@ -27,6 +27,8 @@ function conecta() {
             console.log("--DB STARTED--");
         }).catch((error) => {
             console.log("Error started db");
+            console.log("Error en la base de datos");
+            console.log(error);
         });
     });
 }
