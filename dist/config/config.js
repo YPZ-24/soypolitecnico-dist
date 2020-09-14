@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
     DB: {
-        URL: `mongodb+srv://YPZ:${process.env.DB_PWD}@cluster0.3jg2i.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
+        URL: `mongodb://YPZ:${process.env.DB_PWD}@cluster0-shard-00-00.3jg2i.mongodb.net:27017,cluster0-shard-00-01.3jg2i.mongodb.net:27017,cluster0-shard-00-02.3jg2i.mongodb.net:27017/${process.env.DB_NAME}?ssl=true&replicaSet=atlas-ykt0xe-shard-0&authSource=admin&retryWrites=true&w=majority`,
         USR: process.env.DB_USR,
         PWD: process.env.DB_PWD
     },
