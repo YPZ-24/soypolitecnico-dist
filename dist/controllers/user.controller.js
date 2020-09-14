@@ -172,12 +172,14 @@ exports.sendEmailResetPwd = (req, res) => __awaiter(void 0, void 0, void 0, func
             pass: config_1.default.DOMAIN.EMAIL_PASSWORD
         }
     });
-    yield transporter.sendMail({
-        from: '"Soy Politecnico" <ypz@soypolitecnico.org>',
+    console.log(transporter);
+    const resu = yield transporter.sendMail({
+        from: 'Soy Politecnico',
         to: email,
         subject: 'Recuperar Contraseña',
         html: contentHTML
     });
+    console.log(resu);
     res.status(200).json({ status: 200, message: `Email send ${user.nickName}` });
 });
 exports.deleteAccount = (req, res) => __awaiter(void 0, void 0, void 0, function* () {

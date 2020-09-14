@@ -30,15 +30,15 @@ app.get('/api/gn2/v2', (req, res) => {
     res.send('Server started');
 });
 //ROUTES
-app.use('/api/gn2/v2', auth_routes_1.default);
-app.use('/api/gn2/v2', teacher_routes_1.default);
-app.use('/api/gn2/v2', user_routes_1.default);
-app.use('/api/gn2/v2', school_routes_1.default);
-app.use('/api/gn2/v2', qualification_routes_1.default);
-app.use('/api/gn2/v2', roles_routes_1.default);
-app.use('/api/gn2/v2', subject_routes_1.default);
-app.use('/api/gn2/v2', career_routes_1.default);
-app.use('/api/gn2/v2', gossip_routes_1.default);
+app.use(auth_routes_1.default);
+app.use(teacher_routes_1.default);
+app.use(user_routes_1.default);
+app.use(school_routes_1.default);
+app.use(qualification_routes_1.default);
+app.use(roles_routes_1.default);
+app.use(subject_routes_1.default);
+app.use(career_routes_1.default);
+app.use(gossip_routes_1.default);
 //ERROR MIDDLEWARE
 app.use(errorMiddleware_1.default);
 exports.default = app;
