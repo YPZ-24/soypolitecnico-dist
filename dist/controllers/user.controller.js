@@ -156,7 +156,7 @@ exports.resetPassword = (req, res) => __awaiter(void 0, void 0, void 0, function
 exports.sendEmailResetPwd = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email } = req.body;
     const user = yield User_1.default.findOne({ email }).exec();
-    const url = `${config_1.default.DOMAIN.DOMAIN_LINK}/resetPassword/${user._id}`;
+    const url = `${config_1.default.DOMAIN.DOMAIN_LINK}/#/resetPassword/${user._id}`;
     const contentHTML = `
         <h1>SOY POLITECNICO</h1>
         <p>Hola...!</p>
@@ -172,15 +172,12 @@ exports.sendEmailResetPwd = (req, res) => __awaiter(void 0, void 0, void 0, func
             pass: config_1.default.DOMAIN.EMAIL_PASSWORD
         }
     });
-    console.log(transporter);
-    console.log(email);
-    const resu = yield transporter.sendMail({
-        from: 'Soy Politecnico',
-        to: email,
-        subject: 'Recuperar Contraseña',
+    yield transporter.sendMail({
+        from: `'Soy Politecnico' <${config_1.default.DOMAIN.EMAIL_USER}>`,
+        to: "yepezaylin24@gmail.com",
+        subject: "Recuperar Contraseña",
         html: contentHTML
     });
-    console.log(resu);
     res.status(200).json({ status: 200, message: `Email send ${user.nickName}` });
 });
 exports.deleteAccount = (req, res) => __awaiter(void 0, void 0, void 0, function* () {

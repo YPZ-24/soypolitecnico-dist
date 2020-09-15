@@ -48,7 +48,7 @@ exports.createQualificationOnlineV = (req) => __awaiter(void 0, void 0, void 0, 
         madeVideocalls: yup.boolean().required(),
         dissapear: yup.boolean().required(),
         beFair: yup.boolean().required(),
-        comment: yup.string().matches(/^[a-z 0-9 .,;\s]+$|^$/i, 'Comment can only contains letters, numbers and points')
+        comment: yup.string()
     });
     CreateQualificationOnlineSchema.validateSync(req.body);
     yield generalFunctions_1.teacherExists(req.body.idTeacher);
