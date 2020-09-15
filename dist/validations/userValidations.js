@@ -88,17 +88,16 @@ exports.deleteUserCommentV = (req) => __awaiter(void 0, void 0, void 0, function
 });
 exports.resetPasswordV = (req) => __awaiter(void 0, void 0, void 0, function* () {
     const resetPasswordSchema = yup.object().shape({
-        password: yup.string().required().max(50).min(8),
+        email: yup.string().required().email().max(320),
         newPassword: yup.string().required().max(50).min(8),
         confirmPassword: yup.string().required().max(50).min(8).oneOf([yup.ref('newPassword')], 'Passwords must match'),
     });
     resetPasswordSchema.validateSync(req.body, { strict: true });
-    const { password, confirmPassword, newPassword } = req.body;
+    const { email, confirmPassword, newPassword } = req.body;
     const { idUser } = req.params;
     const user = yield User_1.default.findById(idUser).exec();
-    const isMatch = yield user.comparePassword(password);
-    if (!isMatch) {
-        throw new ValidationError_1.default({ message: 'Incorrect password' });
+    if (user.email !== email) {
+        throw new ValidationError_1.default({ message: 'Email do not match' });
     }
     if (newPassword !== confirmPassword) {
         throw new ValidationError_1.default({ message: 'Passwords do not match' });
