@@ -174,7 +174,7 @@ exports.sendEmailResetPwd = (req, res) => __awaiter(void 0, void 0, void 0, func
     });
     yield transporter.sendMail({
         from: `'Soy Politecnico' <${config_1.default.DOMAIN.EMAIL_USER}>`,
-        to: "yepezaylin24@gmail.com",
+        to: email,
         subject: "Recuperar Contraseña",
         html: contentHTML
     });
