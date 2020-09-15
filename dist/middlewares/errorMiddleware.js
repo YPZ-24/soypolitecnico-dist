@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const ability_1 = require("@casl/ability");
 function errorMiddleware(error, req, res, next) {
-    console.log(error);
     let errorObject;
     if (typeof error.toJson === 'function') {
         errorObject = error.toJson();
