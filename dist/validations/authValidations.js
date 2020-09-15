@@ -57,7 +57,8 @@ exports.signUpV = ({ body }) => __awaiter(void 0, void 0, void 0, function* () {
     if (user) {
         throw new ValidationError_1.default({ message: 'The email is already in use' });
     }
-    user = yield User_1.default.findOne({ nickName }).exec();
+    let upperNick = nickName.toUpperCase();
+    user = yield User_1.default.findOne({ upperNick }).exec();
     if (user) {
         throw new ValidationError_1.default({ message: 'The nickName is already in use' });
     }

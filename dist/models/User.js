@@ -21,7 +21,8 @@ const UserSchema = new mongoose_1.Schema({
         type: String,
         required: true,
         maxlength: 30,
-        unique: true
+        unique: true,
+        uppercase: true
     },
     idSchool: {
         type: mongoose_1.Schema.Types.ObjectId,
